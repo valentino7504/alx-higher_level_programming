@@ -8,6 +8,7 @@ int check_cycle(listint_t *list)
 {
 	listint_t *next_node = list;
 
+
 	while (next_node != NULL)
 	{
 		next_node = next_node->next;
