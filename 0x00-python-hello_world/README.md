@@ -1,6 +1,6 @@
 # 0x00 - Python Hello World
 
-This directory contains solutions to the tasks in ALX 0x00-python_hello_world for Cohort 13.
+This directory contains solutions to the tasks in ALX 0x00-python-hello_world for Cohort 13.
 
 ## Files
 
