@@ -11,3 +11,4 @@ This directory contains solutions to the tasks in ALX 0x00-python-hello_world fo
 4. Print float - [4-print_float.py](./4-print_float.py): Complete this [source code](https://github.com/alx-tools/0x00.py/blob/master/4-print_float.py) in order to print the float stored in the variable ``number`` with a precision of 2 digits
 5. Print string - [5-print_string.py](./5-print_string.py): Complete this [source code](https://github.com/alx-tools/0x00.py/blob/master/5-print_string.py) to print a string 3 times followed by its first 9 characters
 6. Play with strings - [6-concat.py](./6-concat.py): Complete this [source code](https://github.com/alx-tools/0x00.py/blob/master/6-concat.py) to print ``Welcome to Holberton School!``
+9. Easter Egg - [9-easter_egg.py](./9-easter_egg.py): Write a Python script that prints "The Zen of Python" by Tim Peters
