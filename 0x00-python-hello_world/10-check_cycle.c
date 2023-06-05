@@ -6,12 +6,12 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *slower_node = list, *faster_node = list->next->next;
+	listint_t *next_node = list;
 
-	while (faster_node->next != NULL && faster_node != NULL)
+	while (next_node != NULL)
 	{
-		slower_node = slower_node->next;
-		if (faster_node == slower_node || faster_node == slower_node->next)
+		next_node = next_node->next;
+		if (next_node == list)
 			return (1);
 	}
 	return (0);
