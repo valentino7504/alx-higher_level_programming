@@ -6,17 +6,18 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *head_node = list;
-	listint_t *next_node;
+	listint_t *slow_node = list;
+	listint_t *fast_node = NULL;
 
-	if (head_node == NULL)
+	if (slow_node == NULL || slow_node->next == NULL)
 		return (0);
-	next_node = head_node->next;
-	while (next_node != NULL)
+	fast_node = (slow_node->next)->next;
+	while (fast_node != NULL && fast_node->next != NULL)
 	{
-		if (next_node == head_node)
+		if (fast_node == slow_node || fast_node == slow_node->next)
 			return (1);
-		next_node = next_node->next;
+		slow_node = slow_node->next;
+		fast_node = (fast_node->next)->next;
 	}
 	return (0);
 }
