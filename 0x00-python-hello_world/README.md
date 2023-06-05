@@ -19,3 +19,10 @@ Prototype: ``int check_cycle(listint_t *list)``
 Return: 0 if there is no cycle, 1 if there is a cycle
 11. Hello, write - [100-write.py](./100-write.py): Write a Python script that prints exactly ``and that piece of art is useful - Dora Korpar, 2015-10-19``, followed by a new line. Use the function write from the sys module. You are not allowed to use print. Your script should print to stderr. Your script should exit with the status code 1
 12. Compile - [101-compile](./101-compile) - Write a script that compiles a Python script file
+13. ByteCode->Python#1 - [102-magic_calculation.py](./102-magic_calculation.py): A Python function that does the same thing as the following bytecode:  
+``  3           0 LOAD_CONST               1 (98)``  
+``              3 LOAD_FAST                0 (a)``  
+``              6 LOAD_FAST                1 (b)``  
+``              9 BINARY_POWER``  
+``             10 BINARY_ADD``  
+``             11 RETURN_VALUE``
