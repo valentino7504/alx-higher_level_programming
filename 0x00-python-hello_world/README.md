@@ -14,3 +14,6 @@ This directory contains solutions to the tasks in ALX 0x00-python-hello_world fo
 7. Copy - Cut - Paste  - [7-edges.py](./7-edges.py): Complete this [source code](https://github.com/alx-tools/0x00.py/blob/master/7-edges.py). ``word_first_3`` should contain the first 3 letters of the variable ``word``, ``word_last_2`` should contain the last 2 letters of the variable ``word``, ``middle_word`` should contain the value of the variable ``word`` without the first and last letters
 8. Create a new sentence - [8-concat_edges.py](./8-concat_edges.py): Complete this [source code](https://github.com/alx-tools/0x00.py/blob/master/8-concat_edges.py) to print ``object-oriented programming with Python``, followed by a new line
 9. Easter Egg - [9-easter_egg.py](./9-easter_egg.py): Write a Python script that prints "The Zen of Python" by Tim Peters
+10. Linked list cycle - [10-check_cycle.c](./10-check_cycle.c): Checks if a singly linked list is cylic.  
+Prototype: ``int check_cycle(listint_t *list)``  
+Return: 0 if there is no cycle, 1 if there is a cycle
