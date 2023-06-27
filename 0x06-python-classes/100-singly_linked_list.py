@@ -48,13 +48,12 @@ class SinglyLinkedList:
         next_node = current_node.next_node
         while next_node is not None:
             if current_node.data <= new_node.data and \
-              next_node.data > new_node.data:
+              next_node.data >= new_node.data:
                 new_node.next_node = next_node
                 current_node.next_node = new_node
                 return
             current_node = current_node.next_node
             next_node = next_node.next_node
-        new_node.next_node = None
         current_node.next_node = new_node
 
     def __str__(self) -> str:
