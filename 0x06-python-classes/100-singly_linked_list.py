@@ -57,8 +57,7 @@ class SinglyLinkedList:
         """defines the string representation of the sll"""
         sll_string = ""
         current_node = self.__head
-        while current_node.next_node is not None:
-            sll_string += f"{current_node.data}\n"
+        while current_node is not None:
+            sll_string += (str(current_node.data) + "\n")
             current_node = current_node.next_node
-        sll_string += f"{current_node.data}"
-        return sll_string
+        return sll_string.strip()
