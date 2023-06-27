@@ -3,7 +3,6 @@
 
 
 import math
-PI = math.pi
 
 
 class Circle:
@@ -16,8 +15,8 @@ class Circle:
 
     def area(self):
         """gets the area of the circle"""
-        return PI * (self.__radius ** 2)
+        return math.pi * (self.__radius ** 2)
 
     def circumference(self):
         """gets the circumference of the circle"""
-        return 2 * self.__radius * PI
+        return 2 * self.__radius * math.pi
