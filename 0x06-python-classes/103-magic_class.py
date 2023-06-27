@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """Creates a circle class"""
-
-
 import math
 
 
