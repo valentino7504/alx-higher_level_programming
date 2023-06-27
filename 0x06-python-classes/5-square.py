@@ -3,7 +3,7 @@
 
 
 class Square:
-    """a square class with getter and setter"""
+    """a square class with getter, setter and area method"""
     def __init__(self, size=0) -> None:
         self.size = size
 
@@ -23,9 +23,11 @@ class Square:
             self.__size = size
 
     def area(self):
+        """returns the area"""
         return self.size ** 2
 
     def my_print(self):
+        """prints the circle to stdout"""
         if self.size == 0:
             print()
         for _ in range(self.size):
