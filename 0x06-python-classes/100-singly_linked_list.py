@@ -40,15 +40,14 @@ class SinglyLinkedList:
         if self.__head is None:
             self.__head = new_node
             return
-        current_node = self.__head
-        if new_node.data < self.__head.data:
-            new_node.next_node = current_node
+        if value <= self.__head.data:
+            new_node.next_node = self.__head
             self.__head = new_node
             return
+        current_node = self.__head
         next_node = current_node.next_node
         while next_node is not None:
-            if current_node.data <= new_node.data and \
-              next_node.data >= new_node.data:
+            if current_node.data <= value and next_node.data >= value:
                 new_node.next_node = next_node
                 current_node.next_node = new_node
                 return
