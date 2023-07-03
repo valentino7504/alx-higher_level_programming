@@ -8,7 +8,6 @@ Definition of a rectangle class for use in
 
 
 class Rectangle:
-    number_of_instances = 0
     """
     An rectangle class with width and height and
     methods to obtain the area and perimeter.
@@ -16,6 +15,8 @@ class Rectangle:
     the terminal/console and tracks the number of rectangle instances
     in the current environment.
     """
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0) -> None:
         self.width = width
         self.height = height
