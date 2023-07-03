@@ -10,6 +10,7 @@ Definition of a rectangle class for use in
 class Rectangle:
     """
     An rectangle class with width and height
+    Also has methos to obtain the area and perimeter
     """
     def __init__(self, width=0, height=0) -> None:
         self.width = width
