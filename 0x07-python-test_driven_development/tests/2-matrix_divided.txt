@@ -1,0 +1,69 @@
+====================
+2-matrix_divided.py
+====================
+
+Test Cases:
+===========
+
+Importing the module:
+    >>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+Conducting matrix division with normal values:
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Matrix is an empty list:
+    >>> matrix = []
+    >>> matrix_divided(matrix, 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Matrix is an empty list of lists:
+    >>> matrix = [[]]
+    >>> matrix_divided(matrix, 4)
+    [[]]
+    >>> matrix = [[], [], []]
+    >>> matrix_divided(matrix, 3)
+    [[], [], []]
+
+Matrix is not a list of lists:
+    >>> matrix = [1, 2, 3]
+    >>> matrix_divided(matrix, 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+    >>> matrix = [1, [1, 3], 4]
+    >>> matrix_divided(matrix, 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Matrix rows are not of the same length:
+    >>> matrix = [[1, 2, 3], [2, 5]]
+    >>> matrix_divided(matrix, 4)
+    Traceback (most recent call last):
+        ...
+    TypeError: Each row of the matrix must have the same size
+
+An element of the matrix is not a number:
+    >>> matrix = [["hello", 1, 2], [2, 4, 6]]
+    >>> matrix_divided(matrix, 5)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+The divisor is not a number:
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(matrix, "Hello")
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+The divisor is zero:
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(matrix, 0)
+    Traceback (most recent call last):
+        ...
+    ZeroDivisionError: division by zero
