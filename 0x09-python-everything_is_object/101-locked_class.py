@@ -6,16 +6,6 @@ creating a locked class in python
 
 class LockedClass:
     """
-    My implementation of a locked class where you can only set
-    first_name
+    a class where you can only create attribute first_name
     """
-
-    def __init__(self) -> None:
-        pass
-
-    def __setattr__(self, __name, __value) -> None:
-        error_msg = f"'LockedClass' object has no attribute '{__name}'"
-        if __name == "first_name":
-            super().__setattr__("first_name", __value)
-        else:
-            raise AttributeError(error_msg)
+    __slots__ = ["first_name"]
