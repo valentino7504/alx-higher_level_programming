@@ -4,9 +4,6 @@ creating a locked class in python
 """
 
 
-from typing import Any
-
-
 class LockedClass:
     """
     My implementation of a locked class where you can only set
