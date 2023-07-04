@@ -1,0 +1,82 @@
+=====================
+5-text_indentation.py
+=====================
+
+Test Cases:
+===========
+
+Importing the module:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Normal Test:
+    >>> text_indentation("Hello. What is your name? Python function definition lines end with : Interesting")
+    Hello.
+    <BLANKLINE>
+    What is your name?
+    <BLANKLINE>
+    Python function definition lines end with :
+    <BLANKLINE>
+    Interesting
+
+Ensure there is no space after:
+    >>> text_indentation("Hello. ")
+    Hello.
+    <BLANKLINE>
+
+Ensure there is no space before:
+    >>> text_indentation(". Idea")
+    .
+    <BLANKLINE>
+    Idea
+
+(these two double as checks for only ? and only :)
+    >>> text_indentation("Are you old? No I'm not")
+    Are you old?
+    <BLANKLINE>
+    No I'm not
+
+    >>> text_indentation("2 currencies: pound and dollar")
+    2 currencies:
+    <BLANKLINE>
+    pound and dollar
+
+Check it only acts on specified characters:
+    >>> text_indentation("Another one. Hello> This is Edwin&")
+    Another one.
+    <BLANKLINE>
+    Hello> This is Edwin&
+
+Non string check:
+    >>> text_indentation(92)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+    >>> text_indentation(["Hello"])
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+    >>> text_indentation(".".join(["Hello", "Edwin"]))
+    Hello.
+    <BLANKLINE>
+    Edwin
+
+Newline handling check:
+    >>> text_indentation("This has a new line.\nMy name is Edwin")
+    This has a new line.
+    <BLANKLINE>
+    <BLANKLINE>
+    My name is Edwin
+
+Wild text:
+    >>> text_indentation("hello      \n.               This has multiple spaces\n.")
+    hello
+    .
+    <BLANKLINE>
+    This has multiple spaces
+    .
+    <BLANKLINE>
+    >>> text_indentation("hello                       .        another wild one:        ")
+    hello                       .
+    <BLANKLINE>
+    another wild one:
+    <BLANKLINE>
