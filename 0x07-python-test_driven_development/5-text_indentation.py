@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This is a module that prints a blank line 
+This is a module that prints a blank line
 based on characters
 It also has error checking and tests in the tests directory
 """
@@ -16,8 +16,8 @@ def text_indentation(text):
     delimiters = [".", "?", ":"]
     for i in range(len(text)):
         space_flag = 0
-        if text[i] == " " and (prev in delimiters or i == 0 \
-          or text[i - 1] == "\n"):
+        if text[i] == " " and (prev in delimiters or i == 0 or
+                               prev == "\n"):
             continue
         elif text[i] == " ":
             looping = True
