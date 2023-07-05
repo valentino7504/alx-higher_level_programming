@@ -26,7 +26,7 @@ Last Name is not a string
 
 Last Name is not given:
     >>> say_my_name("Edwin")
-    Edwin 
+    My name is Edwin 
 
 Last Name only is given:
     >>> say_my_name(last_name="Ade")
