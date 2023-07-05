@@ -10,7 +10,7 @@ Importing:
 
 Testing with two strings:
     >>> say_my_name("Edwin", "Ade")
-    Edwin Ade
+    My name is Edwin Ade
 
 First Name is not a string:
     >>> say_my_name(9, "Ade")
