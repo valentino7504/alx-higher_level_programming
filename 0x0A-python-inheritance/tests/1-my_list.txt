@@ -1,0 +1,54 @@
+1-my_list.py
+=============
+
+=======
+Tests
+=======
+
+Importing the module:
+    >>> MyList = __import__('1-my_list').MyList
+
+Testing with sorted numbers:
+    >>> first_list = MyList([1, 2, 3, 4, 5])
+    >>> first_list.print_sorted()
+    [1, 2, 3, 4, 5]
+    >>> print(first_list)
+    [1, 2, 3, 4, 5]
+
+Testing with unsorted numbers:
+    >>> second_list = MyList([2, 9, 6, 3, 5])
+    >>> second_list.print_sorted()
+    [2, 3, 5, 6, 9]
+    >>> print(second_list)
+    [2, 9, 6, 3, 5]
+
+Testing with descending order:
+    >>> third_list = MyList([9, 8, 7, 6])
+    >>> third_list.print_sorted()
+    [6, 7, 8, 9]
+    >>> print(third_list)
+    [9, 8, 7, 6]
+
+Test with sets:
+    >>> fourth_list = MyList(sorted({9, 8, 7, 6})[::-1])
+    >>> fourth_list.print_sorted()
+    [6, 7, 8, 9]
+    >>> print(fourth_list)
+    [9, 8, 7, 6]
+
+Test with tuples:
+    >>> fifth_list = MyList((8, 6, 4, 3))
+    >>> fifth_list.print_sorted()
+    [3, 4, 6, 8]
+    >>> print(fifth_list)
+    [8, 6, 4, 3]
+
+Append and remove:
+    >>> my_list = MyList()
+    >>> my_list.append(6)
+    >>> my_list.extend([3, 8, 4, 1])
+    >>> my_list.remove(1)
+    >>> my_list.print_sorted()
+    [3, 4, 6, 8]
+    >>> print(my_list)
+    [6, 3, 8, 4]
