@@ -15,7 +15,6 @@ Testing area:
     Traceback (most recent call last):
         ...
     Exception: area() is not implemented
-    >>> bg = BaseGeometry()
     >>> bg.area("Edwin")
     Traceback (most recent call last):
         ...
