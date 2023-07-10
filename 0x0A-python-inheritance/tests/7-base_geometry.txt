@@ -45,54 +45,51 @@ Test with 0 and negative numbers:
     TypeError: val must be an integer
 
 Test with non integers:
-    >>> bg.integer_validator("Edwin", "Left")
-    Traceback (most recent call last):
-        ...
-    TypeError: Edwin must be an integer
-    >>> bg.integer_validator("Another string", 34.6)
-    Traceback (most recent call last):
-        ...
-    TypeError: Another string must be an integer
-    >>> bg.integer_validator("test_value", None)
-    Traceback (most recent call last):
-        ...
-    TypeError: test_value must be an integer
-    >>> bg.integer_validator("test_value", [1, 2, 3])
-    Traceback (most recent call last):
-        ...
-    TypeError: test_value must be an integer
-    >>> bg.integer_validator("test_value", True)
-    Traceback (most recent call last):
-        ...
-    TypeError: test_value must be an integer
-    >>> bg.integer_validator("test_value", {4, 3})
-    Traceback (most recent call last):
-        ...
-    TypeError: test_value must be an integer
-    >>> bg.integer_validator("test_value", (4, 3))
-    Traceback (most recent call last):
-        ...
-    TypeError: test_value must be an integer
-    >>> bg.integer_validator("test_value", {"dict1": 34})
-    Traceback (most recent call last):
-        ...
-    TypeError: test_value must be an integer
-    >>> bg.integer_validator("test_value", complex(4, 3))
-    Traceback (most recent call last):
-        ...
-    TypeError: test_value must be an integer
-    >>> bg.integer_validator("test_value", frozenset([4, 3]))
-    Traceback (most recent call last):
-        ...
-    TypeError: test_value must be an integer
-    >>> bg.integer_validator("test_value", b"values")
-    Traceback (most recent call last):
-        ...
-    TypeError: test_value must be an integer
-    >>> bg.integer_validator("test_value", bytearray(b"4, 3"))
-    Traceback (most recent call last):
-        ...
-    TypeError: test_value must be an integer
+
+	  >>> bg.integer_validator("bool", True)
+	  Traceback (most recent call last):
+          ...
+          TypeError: bool must be an integer
+	  >>> bg.integer_validator("float", 1.5)
+          Traceback (most recent call last):
+          ...
+          TypeError: float must be an integer
+	  >>> bg.integer_validator("complex", complex(1, 1))
+          Traceback (most recent call last):
+          ...
+          TypeError: complex must be an integer
+	  >>> bg.integer_validator("string", "hello")
+          Traceback (most recent call last):
+          ...
+          TypeError: string must be an integer
+	  >>> bg.integer_validator("tuple", (1, 2))
+          Traceback (most recent call last):
+          ...
+          TypeError: tuple must be an integer
+	  >>> bg.integer_validator("list", [1, 2, 3])
+	  Traceback (most recent call last):
+          ...
+          TypeError: list must be an integer
+	  >>> bg.integer_validator("dict", {"key": "value"})
+          Traceback (most recent call last):
+          ...
+          TypeError: dict must be an integer
+	  >>> bg.integer_validator("set", {"hello", "world"})
+          Traceback (most recent call last):
+          ...
+          TypeError: set must be an integer
+	  >>> bg.integer_validator("frozenset", frozenset(["hello", "world"]))
+          Traceback (most recent call last):
+          ...
+          TypeError: frozenset must be an integer
+	  >>> bg.integer_validator("bytes", b"bytes")
+          Traceback (most recent call last):
+          ...
+          TypeError: bytes must be an integer
+	  >>> bg.integer_validator("bytearrays", bytearray(b"bytes"))
+          Traceback (most recent call last):
+          ...
+          TypeError: bytearrays must be an integer
 
 Testing the function with no argument:
     >>> bg.integer_validator()
