@@ -31,10 +31,10 @@ Default test with normal values:
     >>> bg.integer_validator("Edwin", 22)
 
 Test with 0 and negative numbers:
-    >>> bg.integer_validator("my_int", 0)
+    >>> bg.integer_validator("test_value", 0)
     Traceback (most recent call last):
         ...
-    ValueError: my_int must be greater than 0
+    ValueError: test_value must be greater than 0
     >>> bg.integer_validator("mine", -3)
     Traceback (most recent call last):
         ...
@@ -53,46 +53,46 @@ Test with non integers:
     Traceback (most recent call last):
         ...
     TypeError: Another string must be an integer
-    >>> bg.integer_validator("my_int", None)
+    >>> bg.integer_validator("test_value", None)
     Traceback (most recent call last):
         ...
-    TypeError: my_int must be an integer
-    >>> bg.integer_validator("my_int", [1, 2, 3])
+    TypeError: test_value must be an integer
+    >>> bg.integer_validator("test_value", [1, 2, 3])
     Traceback (most recent call last):
         ...
-    TypeError: my_int must be an integer
-    >>> bg.integer_validator("my_int", True)
+    TypeError: test_value must be an integer
+    >>> bg.integer_validator("test_value", True)
     Traceback (most recent call last):
         ...
-    TypeError: my_int must be an integer
-    >>> bg.integer_validator("my_int", {4, 3})
+    TypeError: test_value must be an integer
+    >>> bg.integer_validator("test_value", {4, 3})
     Traceback (most recent call last):
         ...
-    TypeError: my_int must be an integer
-    >>> bg.integer_validator("my_int", (4, 3))
+    TypeError: test_value must be an integer
+    >>> bg.integer_validator("test_value", (4, 3))
     Traceback (most recent call last):
         ...
-    TypeError: my_int must be an integer
-    >>> bg.integer_validator("my_int", {"dict1": 34})
+    TypeError: test_value must be an integer
+    >>> bg.integer_validator("test_value", {"dict1": 34})
     Traceback (most recent call last):
         ...
-    TypeError: my_int must be an integer
-    >>> bg.integer_validator("my_int", complex(4, 3))
+    TypeError: test_value must be an integer
+    >>> bg.integer_validator("test_value", complex(4, 3))
     Traceback (most recent call last):
         ...
-    TypeError: my_int must be an integer
-    >>> bg.integer_validator("my_int", frozenset([4, 3]))
+    TypeError: test_value must be an integer
+    >>> bg.integer_validator("test_value", frozenset([4, 3]))
     Traceback (most recent call last):
         ...
-    TypeError: my_int must be an integer
-    >>> bg.integer_validator("my_int", b"values")
+    TypeError: test_value must be an integer
+    >>> bg.integer_validator("test_value", b"values")
     Traceback (most recent call last):
         ...
-    TypeError: my_int must be an integer
-    >>> bg.integer_validator("my_int", bytearray(b"4, 3"))
+    TypeError: test_value must be an integer
+    >>> bg.integer_validator("test_value", bytearray(b"4, 3"))
     Traceback (most recent call last):
         ...
-    TypeError: my_int must be an integer
+    TypeError: test_value must be an integer
 
 Testing the function with no argument:
     >>> bg.integer_validator()
