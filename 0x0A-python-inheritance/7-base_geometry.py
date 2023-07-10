@@ -1,17 +1,12 @@
 #!/usr/bin/python3
 """
-
-This module creates a geometry class
-
+This module creates another geometry class
+This time it has some other stuff
 """
 
 
 class BaseGeometry:
-    """
-    This is a BaseGeometry class with area method
-    """
-    def __init__(self) -> None:
-        pass
+    """This is a BaseGeometry class with area method"""
 
     def area(self):
         """
