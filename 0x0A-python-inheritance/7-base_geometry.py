@@ -2,11 +2,14 @@
 """
 This module creates another geometry class
 This time it has some other stuff
+It has integer validator methods
 """
 
 
 class BaseGeometry:
-    """This is a BaseGeometry class with area method"""
+    """
+    This is a BaseGeometry class with area method
+    """
 
     def area(self):
         """
@@ -19,6 +22,6 @@ class BaseGeometry:
         validates integers for BaseGeometry
         """
         if type(value) != int:
-            raise TypeError(f"{name} must be an integer")
+            raise TypeError("{} must be an integer".format(name))
         if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
+            raise ValueError("{} must be greater than 0".format(name))
