@@ -18,7 +18,7 @@ Testing area:
     >>> bg.area("Edwin")
     Traceback (most recent call last):
         ...
-    TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
+    TypeError: area() takes 1 positional argument but 2 were given
 
 Default test with normal values:
     >>> bg.integer_validator("Edwin", 22)
@@ -91,16 +91,16 @@ Testing the function with no argument:
     >>> bg.integer_validator()
     Traceback (most recent call last):
         ...
-    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
 Testing the function with one argument:
     >>> bg.integer_validator("Edwin")
     Traceback (most recent call last):
         ...
-    TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 More than required number of arguments:
     >>> bg.integer_validator("Edwin", 34, 55)
     Traceback (most recent call last):
         ...
-    TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
