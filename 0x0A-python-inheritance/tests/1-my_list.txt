@@ -71,3 +71,14 @@ Single number:
     >>> a_list = MyList([1])
     >>> a_list.print_sorted()
     [1]
+
+Empty List:
+    >>> empty = MyList()
+    >>> empty.print_sorted()
+    []
+
+No object:
+    >>> mysterious_list.print_sorted()
+    Traceback (most recent call last):
+        ...
+    NameError: name 'mysterious_list' is not defined
