@@ -6,6 +6,12 @@ Tests
 
 Importing the module:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> print(len(__import__('7-base_geometry').BaseGeometry.__doc__) > 1)
+    True
+    >>> print(len(__import__('7-base_geometry').BaseGeometry.area.__doc__) > 1)
+    True
+    >>> print(len(__import__('7-base_geometry').BaseGeometry.integer_validator.__doc__) > 1)
+    True
     >>> bg = BaseGeometry()
 
 Testing the function with no argument:
@@ -60,7 +66,14 @@ Test with 0 and negative numbers:
     Traceback (most recent call last):
         ...
     TypeError: val must be an integer
+
+Testing area:
     >>> bg.area()
     Traceback (most recent call last):
         ...
     Exception: area() is not implemented
+    >>> bg = BaseGeometry()
+    >>> bg.area(1)
+    Traceback (most recent call last):
+        ...
+    TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
