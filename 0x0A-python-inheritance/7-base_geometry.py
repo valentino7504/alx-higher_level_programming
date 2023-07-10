@@ -11,6 +11,9 @@ class BaseGeometry:
     This is a BaseGeometry class with area method
     """
     def __init__(self) -> None:
+        """
+        Init method for Base Geometry
+        """
         pass
 
     def area(self):
