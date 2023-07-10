@@ -6,15 +6,29 @@ Tests
 
 Importing the module:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
-    >>> print(len(__import__('7-base_geometry').BaseGeometry.__doc__) > 1)
+    >>> len(__import__('7-base_geometry').BaseGeometry.__doc__) > 1
     True
-    >>> print(len(__import__('7-base_geometry').__doc__) > 1)
+    >>> len(__import__('7-base_geometry').__doc__) > 1
     True
-    >>> print(len(__import__('7-base_geometry').BaseGeometry.area.__doc__) > 1)
+    >>> len(__import__('7-base_geometry').BaseGeometry.area.__doc__) > 1
     True
-    >>> print(len(__import__('7-base_geometry').BaseGeometry.integer_validator.__doc__) > 1)
+    >>> len(__import__('7-base_geometry').BaseGeometry.integer_validator.__doc__) > 1
     True
+
+Testing area:
     >>> bg = BaseGeometry()
+    >>> bg.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+    >>> bg = BaseGeometry()
+    >>> bg.area("Edwin")
+    Traceback (most recent call last):
+        ...
+    TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
+
+Default test with normal values:
+    >>> bg.integer_validator("Edwin", 22)
 
 Testing the function with no argument:
     >>> bg.integer_validator()
@@ -37,9 +51,6 @@ More than required number of arguments:
     Traceback (most recent call last):
         ...
     TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
-
-Default test with normal values:
-    >>> bg.integer_validator("Edwin", 22)
 
 Test with non integers:
     >>> bg.integer_validator("Edwin", "Left")
@@ -81,13 +92,3 @@ Test with 0 and negative numbers:
         ...
     TypeError: val must be an integer
 
-Testing area:
-    >>> bg.area()
-    Traceback (most recent call last):
-        ...
-    Exception: area() is not implemented
-    >>> bg = BaseGeometry()
-    >>> bg.area(1)
-    Traceback (most recent call last):
-        ...
-    TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
