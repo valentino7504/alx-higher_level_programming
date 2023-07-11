@@ -23,7 +23,6 @@ class Student:
             return self.__dict__
         attr_dict = {}
         for item in attrs:
-            new_item = self.__dict__.get(item, None)
-            if new_item is not None:
-                attr_dict[item] = new_item
+            if hasattr(self, item):
+                attr_dict[item] = getattr(self, item)
         return attr_dict
