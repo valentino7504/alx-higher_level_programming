@@ -9,7 +9,7 @@ This module loads a json string as an object from a file
 import json
 
 
-def load_from_json(filename):
+def load_from_json_file(filename):
     """
     reads a file and obtains a json object from it
     """
