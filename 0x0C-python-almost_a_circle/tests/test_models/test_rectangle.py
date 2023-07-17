@@ -22,6 +22,12 @@ class TestRectangle(unittest.TestCase):
     """
     This class tests the rectangle class
     """
+    def get_rect(self, rect: Rectangle):
+        """
+        gets the rectangle attributes
+        """
+        return [rect.id, rect.width, rect.height, rect.x, rect.y]
+
     def setUp(self):
         """
         sets up for testing
@@ -125,13 +131,15 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             _ = Rectangle(3, None, 7, 8, 9)
         with self.assertRaises(TypeError):
+            _ = Rectangle(4, True, 6, 8, 98)
+        with self.assertRaises(TypeError):
             rect_no_height = Rectangle(3, 2, 4, 5, 7)
             rect_no_height.height = {"edwin", "mbony"}
         with self.assertRaises(TypeError):
             _ = Rectangle(2, 3.4, 1, 2, 1001)
         rect_no_height_2 = Rectangle(2, 3, 4, 5, 21982073)
         self.assertRaises(TypeError, setattr, rect_no_height_2,
-                          "height", complex(2))
+                          "height", (2,))
 
     def test_inheritance(self):
         """
@@ -231,19 +239,19 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             _ = Rectangle(-4.8, 7, 7, 9, 542)
         with self.assertRaises(TypeError):
-            _ = Rectangle(complex(8, 4), 2, 23, 12, 111)
+            _ = Rectangle((8, 4), 2, 23, 12, 111)
         with self.assertRaises(TypeError):
             _ = Rectangle({1, 2}, 5, 8, 7, 1233)
         with self.assertRaises(TypeError):
             _ = Rectangle(None, 7, 7, 8, 92121)
         with self.assertRaises(TypeError):
             rect_no_width = Rectangle(3, 2, 4, 5, 79854)
-            rect_no_width.width = {"edwin", "mbony"}
+            rect_no_width.width = True
         with self.assertRaises(TypeError):
             _ = Rectangle(2, 3.4, 1, 2, 1001)
         rect_no_width2 = Rectangle(2, 3, 4, 5, 21982073)
         self.assertRaises(TypeError, setattr,
-                          rect_no_width2, "width", frozenset([1, 4]))
+                          rect_no_width2, "width", [1, 4])
 
     def test_x(self):
         """
@@ -279,7 +287,13 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             _ = Rectangle(5, 8, [9, 5], 8, 11019)
         with self.assertRaises(TypeError):
-            _ = Rectangle(3, 2, {"edwin": 8}, 9, 99199)
+            _ = Rectangle(3, 2, {9, 8}, 9, 99199)
+        with self.assertRaises(TypeError):
+            _ = Rectangle(3, 2, True, 9, 99323)
+        with self.assertRaises(TypeError):
+            _ = Rectangle(3, 2, None, 9, 99112324)
+        with self.assertRaises(TypeError):
+            _ = Rectangle(3, 2, (9, 8), 9, 99192)
 
     def test_y(self):
         """
@@ -340,6 +354,18 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r_one.id, 4)
         self.assertEqual(r_one.width, 3)
 
+    def test_no_arg(self):
+        """
+        tests when args has no param
+        """
+        r_no_param = Rectangle(3, 4, 5, 6, 9)
+        r_no_param.update()
+        self.assertEqual(r_no_param.id, 9)
+        self.assertEqual(r_no_param.width, 3)
+        self.assertEqual(r_no_param.height, 4)
+        self.assertEqual(r_no_param.x, 5)
+        self.assertEqual(r_no_param.y, 6)
+
     def test_update_kwargs(self):
         """
         testing the update method with kwargs
@@ -348,6 +374,16 @@ class TestRectangle(unittest.TestCase):
         r2.update(id=6, width=8, height=12, x=1, y=1)
         r2_list = [r2.id, r2.width, r2.height, r2.x, r2.y]
         self.assertEqual(r2_list, [6, 8, 12, 1, 1])
+
+    def test_update_not_all_kwargs(self):
+        """
+        test updates using fewer kwargs
+        """
+        r_few = Rectangle(5, 6, 8, 9, 10)
+        r_few.update(id=900, width=34)
+        self.assertEqual(r_few.id, 900)
+        self.assertEqual(r_few.width, 34)
+        self.assertEqual([r_few.height, r_few.x, r_few.y], [6, 8, 9])
 
     def test_update_mixed(self):
         """
@@ -358,10 +394,42 @@ class TestRectangle(unittest.TestCase):
         r3_list = [r3.id, r3.width, r3.height, r3.x, r3.y]
         self.assertEqual(r3_list, [1201, 48, 6, 2, 3])
 
+    def test_args_list(self):
+        """
+        testing update with a list
+        """
+        r_list = Rectangle(9, 12, 3, 4, 2)
+        r_list.update(*[2, 4, 6, 8, 10])
+        r_list_attr = [r_list.id, r_list.width,
+                       r_list.height, r_list.x, r_list.y]
+        self.assertEqual(r_list_attr, [2, 4, 6, 8, 10])
+
+    def test_another_mixed(self):
+        """
+        testing with another set of mixed args
+        """
         r4 = Rectangle(4, 7, 9, 10, 12)
         r4.update(99, id=4, x=1)
         self.assertEqual(r4.id, 99)
         self.assertEqual(r4.x, 1)
+
+    def test_kwargs_dict(self):
+        """
+        testing kwargs with a dict
+        """
+        kwargs_new = {"id": 9}
+        rect_kwargs = Rectangle(9, 1, 3, 2, 1)
+        rect_kwargs.update(**kwargs_new)
+        self.assertEqual(self.get_rect(rect_kwargs), [9, 9, 1, 3, 2])
+
+    def test_mixed_again(self):
+        """
+        another test case for mixed args
+        """
+        r5 = Rectangle(7, 8, 9, 10, 11)
+        r5.update(100, 22, 5, x=5, y=9)
+        r5_list = [r5.id, r5.width, r5.height, r5.x, r5.y]
+        self.assertEqual(r5_list, [100, 22, 5, 5, 9])
 
     def test_less_arguments(self):
         """
@@ -382,6 +450,43 @@ class TestRectangle(unittest.TestCase):
         """
         with self.assertRaises(TypeError):
             _ = Rectangle()
+
+    def test_to_dict(self):
+        """
+        tests the to dictionary method
+        """
+        rect_to_dict = Rectangle(3, 4, 5, 6, 10)
+        rect_dict = rect_to_dict.to_dictionary()
+        test_dict = {
+            "width": 3,
+            "height": 4,
+            "x": 5,
+            "y": 6,
+            "id": 10
+        }
+        self.assertEqual(rect_dict, test_dict)
+
+    def dict_after_update(self):
+        """
+        tests the to_dictionary method after update
+        """
+        r8 = Rectangle(4, 6, 8, 2, 1)
+        r8_dict = r8.to_dictionary()
+        test_dictionary = {
+            "width": 4,
+            "height": 6,
+            "x": 8,
+            "y": 2,
+            "id": 1
+        }
+        self.assertEqual(r8_dict, test_dictionary)
+        new_values = [9, 12, 3, 10, 1]
+        r8.update(*new_values)
+        attribute_list = ["id", "width", "height", "x", "y"]
+        r8_dict = r8.to_dictionary()
+        for attribute, value in zip(attribute_list, new_values):
+            test_dictionary[attribute] = value
+        self.assertEqual(r8_dict, test_dictionary)
 
 
 if __name__ == "__main__":

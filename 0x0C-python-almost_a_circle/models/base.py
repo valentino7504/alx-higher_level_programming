@@ -24,6 +24,21 @@ class Base:
             self.id = Base.__nb_objects
 
     @classmethod
+    def load_from_file(cls):
+        """
+        returns a list of instances from a file
+        """
+        try:
+            file = open(f"{cls.__name__}.json", "r", encoding="utf-8")
+        except FileNotFoundError:
+            return []
+        list_input = file.read()
+        list_dicts = cls.from_json_string(list_input)
+        list_objs = [cls.create(**obj_dict) for obj_dict in list_dicts]
+        file.close()
+        return list_objs
+
+    @classmethod
     def save_to_file(cls, list_objs: list):
         """
         Writes json representation to a file
