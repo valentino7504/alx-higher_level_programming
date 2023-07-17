@@ -130,6 +130,19 @@ class Rectangle(Base):
             if attribute not in set_attributes:
                 setattr(self, attribute, new_value)
 
+    def to_dictionary(self):
+        """
+        returns dictionary repr of a rectangle
+        """
+        rect_dict = {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
+        return rect_dict
+
     def __str__(self) -> str:
         """
         defines the string representation of the rectangle

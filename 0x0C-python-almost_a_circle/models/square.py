@@ -52,6 +52,18 @@ class Square(Rectangle):
             if attribute not in set_attributes:
                 setattr(self, attribute, new_value)
 
+    def to_dictionary(self):
+        """
+        returns the dictionary representation of a square
+        """
+        square_dict = {
+            "id": self.id,
+            "size": self.size,
+            "x": self.x,
+            "y": self.y
+        }
+        return square_dict
+
     def __str__(self) -> str:
         """
         __str__ for square class
