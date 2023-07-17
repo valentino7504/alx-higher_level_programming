@@ -23,6 +23,17 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
+    @classmethod
+    def save_to_file(cls, list_objs: list):
+        """
+        Writes json representation to a file
+        """
+        if list_objs is None:
+            return "[]"
+        dict_list = [item.to_dictionary() for item in list_objs]
+        with open(f"{cls.__name__}.json", "w", encoding="utf-8") as file:
+            file.write(json.dumps(dict_list))
+
     @staticmethod
     def to_json_string(list_dictionaries: list):
         """
