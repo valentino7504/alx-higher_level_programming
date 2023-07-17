@@ -32,7 +32,7 @@ class Base:
             return "[]"
         dict_list = [item.to_dictionary() for item in list_objs]
         with open(f"{cls.__name__}.json", "w", encoding="utf-8") as file:
-            file.write(json.dumps(dict_list))
+            file.write(Base.to_json_string(dict_list))
 
     @staticmethod
     def to_json_string(list_dictionaries: list):
