@@ -30,9 +30,9 @@ class Base:
         """
         with open(f"{cls.__name__}.json", "w", encoding="utf-8") as file:
             if list_objs is not None:
+                dict_list = [item.to_dictionary() for item in list_objs]
                 file.write(Base.to_json_string(dict_list))
             else:
-                dict_list = [item.to_dictionary() for item in list_objs]
                 file.write("[]")
 
     @staticmethod
