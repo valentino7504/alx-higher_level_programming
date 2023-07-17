@@ -35,6 +35,18 @@ class Base:
             else:
                 file.write("[]")
 
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        creates an object
+        """
+        if cls.__name__ == "Square":
+            dummy = cls(0, 0, 0, 0)
+        elif cls.__name__ == "Rectangle":
+            dummy = cls(0, 0, 0, 0, 0)
+        dummy.update(**dictionary)
+        return dummy
+
     @staticmethod
     def to_json_string(list_dictionaries: list):
         """
