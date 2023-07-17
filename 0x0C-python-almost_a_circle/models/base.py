@@ -29,6 +29,6 @@ class Base:
         Returns the json string of a list of dictionaries
         """
         if list_dictionaries is None or len(list_dictionaries) == 0 or\
-           type(list_dictionaries) != list:
+           type(list_dictionaries) != list or not list_dictionaries:
             return "[]"
         return json.dumps(list_dictionaries)
