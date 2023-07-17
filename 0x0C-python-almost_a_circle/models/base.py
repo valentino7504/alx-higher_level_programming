@@ -41,11 +41,11 @@ class Base:
         creates an object
         """
         if cls.__name__ == "Square":
-            dummy = cls(1, 0, 0, 0)
+            dummy_obj = cls(1)
         elif cls.__name__ == "Rectangle":
-            dummy = cls(1, 1, 0, 0, 0)
-        dummy.update(**dictionary)
-        return dummy
+            dummy_obj = cls(1, 1)
+        dummy_obj.update(**dictionary)
+        return dummy_obj
 
     @staticmethod
     def to_json_string(list_dictionaries: list):
