@@ -26,6 +26,7 @@ class TestRectangle(unittest.TestCase):
         """
         sets up for testing
         """
+        Base.__nb_objects = 0
         Rectangle.__nb_objects = 0
 
     def tearDown(self):
@@ -179,9 +180,9 @@ class TestRectangle(unittest.TestCase):
         checks id with None id passed
         """
         rectangle_with_no_id = Rectangle(3, 5, 6, 7)
-        self.assertEqual(getattr(rectangle_with_no_id, "id"), 1)
+        self.assertEqual(getattr(rectangle_with_no_id, "id"), 3)
         rectangle_none_id = Rectangle(4, 5, 2, 13, None)
-        self.assertEqual(getattr(rectangle_none_id, "id"), 2)
+        self.assertEqual(getattr(rectangle_none_id, "id"), 4)
 
     def test_str(self):
         """
@@ -369,7 +370,7 @@ class TestRectangle(unittest.TestCase):
         """
         r5 = Rectangle(2, 2)
         r5_list = [r5.width, r5.height, r5.x, r5.y, r5.id]
-        self.assertEqual(r5_list, [2, 2, 0, 0, 3])
+        self.assertEqual(r5_list, [2, 2, 0, 0, 5])
 
     def test_onearg_creation(self):
         """tries to create a rectangle but is invalid"""

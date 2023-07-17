@@ -26,6 +26,7 @@ class TestSquare(unittest.TestCase):
         """
         Setup method for testing
         """
+        Base.__nb_objects = 0
         Square.__nb_objects = 0
 
     def tearDown(self) -> None:
@@ -66,14 +67,14 @@ class TestSquare(unittest.TestCase):
         checks to see if nb_objects functions correctly in Square
         """
         non_id_square = Square(5, 2, 2)
-        self.assertEqual(non_id_square.id, 1)
+        self.assertEqual(non_id_square.id, 7)
 
     def test_none_id(self):
         """
         tests when id is none
         """
         none_id_square = Square(8, 9, 2, None)
-        self.assertEqual(none_id_square.id, 2)
+        self.assertEqual(none_id_square.id, 8)
 
     def test_square_str(self):
         """

@@ -111,7 +111,7 @@ class TestSquare(unittest.TestCase):
         """
         tests when the user tries to use a nonint size
         """
-
+        pass
 
 if __name__ == "__main__":
     unittest.main()
