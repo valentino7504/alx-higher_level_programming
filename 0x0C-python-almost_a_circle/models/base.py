@@ -41,9 +41,9 @@ class Base:
         creates an object
         """
         if cls.__name__ == "Square":
-            dummy = cls(0, 0, 0, 0)
+            dummy = cls(1, 0, 0, 0)
         elif cls.__name__ == "Rectangle":
-            dummy = cls(0, 0, 0, 0, 0)
+            dummy = cls(1, 1, 0, 0, 0)
         dummy.update(**dictionary)
         return dummy
 
