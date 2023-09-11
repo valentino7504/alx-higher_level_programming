@@ -1,5 +1,7 @@
 #!/usr/bin/node
 function add (a, b) {
+  a = Number(a);
+  b = Number(b);
   if (isNaN(a) || isNaN(b)) {
     return (NaN);
   }
