@@ -8,14 +8,10 @@ function secondBiggest (values) {
   values.forEach((value, index) => {
     values[index] = Number(value);
   });
-  let biggest = values[0];
-  let prevBiggest = values[0];
-  values.forEach(value => {
-    if (value > biggest) {
-      prevBiggest = biggest;
-      biggest = value;
-    }
+  const biggest = Math.max(...values);
+  const newArray = values.filter(function (x) {
+    return (x !== biggest);
   });
-  return (prevBiggest);
+  return (Math.max(...newArray));
 }
 console.log(secondBiggest(argv));
