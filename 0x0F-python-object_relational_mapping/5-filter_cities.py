@@ -21,7 +21,8 @@ if __name__ == "__main__":
     cursor = db.cursor()
     cursor.execute(
         "SELECT cities.name FROM cities INNER JOIN states ON " +
-        "cities.state_id=states.id WHERE states.name=%(name)s", {"name": argv[4]}
+        "cities.state_id=states.id WHERE states.name LIKE BINARY %(name)s",
+        {"name": argv[4]}
     )
     data = list(cursor.fetchall())
     data_string = ", ".join([city[0] for city in data])
