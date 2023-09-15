@@ -16,6 +16,6 @@ if __name__ == "__main__":
                            f"@localhost:3306/{argv[3]}", pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State)
+    states = session.query(State).order_by(State.id)
     for state in states:
         print(f"{state.id}: {state.name}")
