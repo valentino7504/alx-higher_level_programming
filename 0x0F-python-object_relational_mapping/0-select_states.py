@@ -11,13 +11,12 @@ import MySQLdb
 import sys
 
 
-if __name__ != "__main__":
-    exit()
-argv = sys.argv
-db = MySQLdb.connect(host="localhost", user=f"{argv[1]}",
-                     passwd=f"{argv[2]}", db=f"{argv[3]}", port=3306)
-cur = db.cursor()
-cur.execute("SELECT * FROM states ORDER BY id ASC")
-data = cur.fetchall()
-for row in data:
-    print(row)
+if __name__ == "__main__":
+    argv = sys.argv
+    db = MySQLdb.connect(host="localhost", user=f"{argv[1]}",
+                         passwd=f"{argv[2]}", db=f"{argv[3]}", port=3306)
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
+    data = cur.fetchall()
+    for row in data:
+        print(row)
