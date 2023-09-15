@@ -16,7 +16,7 @@ if __name__ == "__main__":
                            f"@localhost:3306/{argv[3]}", pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
-    state = session.query(State).where(State.id==2).first()
+    state = session.query(State).where(State.id == 2).first()
     state.name = "New Mexico"
     session.add(state)
     session.commit()
