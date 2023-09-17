@@ -23,4 +23,3 @@ class State(Base):
                 autoincrement=True, unique=True)
     name = Column(String(128), nullable=False)
     cities = relationship("City", backref="state", cascade="all, delete")
-
