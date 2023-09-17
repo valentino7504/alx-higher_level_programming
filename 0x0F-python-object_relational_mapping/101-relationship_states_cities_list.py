@@ -20,8 +20,6 @@ if __name__ == "__main__":
     states = session.query(State).order_by(State.id)
     for state in states:
         print(f"{state.id}: {state.name}")
-        cities = session.query(City).filter(City.state_id
-                                            == state.id).order_by(City.id)
-        for city in cities:
+        for city in state.cities:
             print(f"\t{city.id}: {city.name}")
     session.close()
