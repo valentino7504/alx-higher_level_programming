@@ -1,3 +1,3 @@
 #!/bin/bash
 # gets methods available
-curl -siX OPTIONS "$1" | grep -iF allow | cut -b 8-
+curl -sI "$1" | grep "Allow" | cut -b 8-
