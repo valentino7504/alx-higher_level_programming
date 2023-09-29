@@ -12,7 +12,5 @@ import sys
 
 argv = sys.argv
 with urllib.request.urlopen(argv[1]) as response:
-    headers = response.getheaders()
-    for header in headers:
-        if header[0] == "X-Request-Id":
-            print(header[1])
+    headers = dict(response.headers)
+    print(headers.get("X-Request-Id"))
