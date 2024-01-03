@@ -9,7 +9,7 @@ request(url, (error, response, body) => {
   } else {
     const movies = JSON.parse(body).results;
     movies.forEach(movie => {
-      if (movie.characters.some(person => person.includes(`18`))) {
+      if (movie.characters.some(person => person.includes('18'))) {
         wedgeMovies++;
       }
     });
